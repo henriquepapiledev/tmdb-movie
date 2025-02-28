@@ -2,7 +2,7 @@
 
 ## Descrição do Projeto
 
-<p align="center">Este é um aplicativo que utiliza a API do TMDB (The Movie Database) para exibir informações sobre filmes, incluindo detalhes como título, sinopse, elenco e avaliações. O projeto foi desenvolvido para explorar a integração com APIs REST e criar uma interface interativa para os usuários.</p>
+<p align="left">Este é um aplicativo que utiliza a API do TMDB (The Movie Database) para exibir informações sobre filmes, incluindo detalhes como título, sinopse, elenco e avaliações. O projeto foi desenvolvido para explorar a integração com APIs REST e criar uma interface interativa para os usuários.</p>
 
 ## Funcionalidades
 
