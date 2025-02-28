@@ -1,9 +1,17 @@
 import './App.css';
+import Footer from './Components/Footer';
+import Header from './Components/Header';
 
 function App() {
   return (
-    <div>
-      <h1>TMDB</h1>
+    <div className="App">
+      <Header />
+      <main>
+        <div>
+          <h1 className="text-3xl font-bold">TMDB</h1>
+        </div>
+      </main>
+      <Footer />
     </div>
   );
 }
