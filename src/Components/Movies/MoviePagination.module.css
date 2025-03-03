@@ -1,0 +1,8 @@
+.moviePagination a:global(.active) {
+  background: var(--color-primary-color);
+  color: var(--color-white);
+}
+
+.moviePagination a:hover svg path {
+  fill: var(--color-white);
+}

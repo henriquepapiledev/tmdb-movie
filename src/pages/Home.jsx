@@ -1,5 +1,6 @@
 import MovieList from '../components/Movies/MovieList';
 import MovieListCategory from '../components/Movies/MovieListCategory';
+import MoviePagination from '../components/Movies/MoviePagination';
 
 const Home = () => {
   return (
@@ -22,6 +23,7 @@ const Home = () => {
       <section className="content pt-8 pb-8">
         <div className="container">
           <MovieList />
+          <MoviePagination />
         </div>
       </section>
     </>
