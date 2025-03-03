@@ -1,4 +1,5 @@
 import MovieList from '../components/Movies/MovieList';
+import MovieListCategory from '../components/Movies/MovieListCategory';
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
               <p className="font-bold text-sm text-white text-center uppercase">
                 Filtre por:
               </p>
+              <MovieListCategory />
             </div>
           </div>
         </div>
