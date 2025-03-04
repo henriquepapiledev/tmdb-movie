@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import MovieCard from './MovieCard';
-import { API_URL, MOVIE_GET } from '../../api/api';
+import { MOVIE_GET } from '../../api/api';
 import useFetch from '../../hooks/useFetch';
 
 const MovieList = () => {
@@ -29,13 +29,6 @@ const MovieList = () => {
       </div>
     );
   else return null;
-  // if (data)
-  //   return (
-  //     <div>
-  //       <h1>teste</h1>
-  //       {console.log(data)}
-  //     </div>
-  //   );
 };
 
 export default MovieList;

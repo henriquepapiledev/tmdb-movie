@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import foto from '../../assets/filme.png';
 
 const MovieCard = ({ poster_path, title, release_date }) => {
   const movieImage = 'https://image.tmdb.org/t/p/original/';
@@ -9,7 +8,7 @@ const MovieCard = ({ poster_path, title, release_date }) => {
       <Link to="/">
         <figure>
           <img
-            className="w-full rounded-md"
+            className="w-full rounded-md object-cover min-h-[336px]"
             src={`${movieImage}${poster_path}`}
             alt={title}
           />
