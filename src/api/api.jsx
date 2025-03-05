@@ -20,3 +20,13 @@ export function MOVIE_CATEGORY_GET() {
     },
   };
 }
+
+export function MOVIE_GET_ID(id) {
+  return {
+    url: `${API_URL}movie/${id}?&api_key=${API_KEY}&language=pt-BR`,
+    options: {
+      method: 'GET',
+      cache: 'no-store',
+    },
+  };
+}

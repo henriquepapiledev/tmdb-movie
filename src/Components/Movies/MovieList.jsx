@@ -1,14 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import MovieCard from './MovieCard';
 import { MOVIE_GET } from '../../api/api';
 import useFetch from '../../hooks/useFetch';
 
 const MovieList = () => {
   const { data, loading, error, request } = useFetch();
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     const getMovie = async () => {
-      const page = 1;
       const { url, options } = MOVIE_GET({ page });
       await request(url, options);
     };
@@ -21,6 +21,7 @@ const MovieList = () => {
         {data.results.map(({ id, poster_path, title, release_date }) => (
           <MovieCard
             key={id}
+            id={id}
             poster_path={poster_path}
             title={title}
             release_date={release_date}

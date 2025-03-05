@@ -10,7 +10,7 @@ const routes = () => (
     <main className="AppBody">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="movie" element={<Movie />} />
+        <Route path="filme/:id" element={<Movie />} />
       </Routes>
     </main>
     <Footer />

@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 
-const MovieCard = ({ poster_path, title, release_date }) => {
-  const movieImage = 'https://image.tmdb.org/t/p/original/';
+const MovieCard = ({ id, poster_path, title, release_date }) => {
+  const movieImage = 'https://image.tmdb.org/t/p/original';
 
   return (
     <div>
-      <Link to="/">
-        <figure>
+      <Link to={`/filme/${id}`}>
+        <figure id={id}>
           <img
             className="w-full rounded-md object-cover min-h-[336px]"
             src={`${movieImage}${poster_path}`}
