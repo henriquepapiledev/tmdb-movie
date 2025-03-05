@@ -3,9 +3,11 @@ import Header from '../components/Header';
 import Home from '../pages/Home';
 import Footer from '../components/Footer';
 import Movie from '../pages/Movie';
+import ScrollToTop from '../utils/ScrollToTop';
 
 const routes = () => (
   <BrowserRouter>
+    <ScrollToTop />
     <Header />
     <main className="AppBody">
       <Routes>
