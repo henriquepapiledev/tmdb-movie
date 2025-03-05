@@ -4,6 +4,7 @@ import useFetch from '../hooks/useFetch';
 import { MOVIE_GET_ID } from '../api/api';
 import MovieTitle from '../components/Movies/MovieTitle';
 import MovieRecommendations from '../components/Movies/MovieRecommendations';
+import image from '../assets/no-image.jpg';
 
 const Movie = () => {
   const { id } = useParams();
@@ -23,11 +24,19 @@ const Movie = () => {
             <div className="container">
               <div className="flex gap-8">
                 <div className="w-96 flex-none mb-[-3rem]">
-                  <img
-                    className="w-full rounded-md object-cover"
-                    src={`${movieImage}${data.poster_path}`}
-                    alt={data.title}
-                  />
+                  {data.poster_path === null ? (
+                    <img
+                      className="w-full rounded-md object-cover"
+                      src={image}
+                      alt={data.title}
+                    />
+                  ) : (
+                    <img
+                      className="w-full rounded-md object-cover"
+                      src={`${movieImage}${data.poster_path}`}
+                      alt={data.title}
+                    />
+                  )}
                 </div>
                 <div className="w-3xl">
                   <h1 className="font-bold text-[2rem] text-white leading-none mb-3">
