@@ -12,7 +12,7 @@ const MovieCard = ({ id, poster_path, title, release_date }) => {
             src={`${movieImage}${poster_path}`}
             alt={title}
           />
-          <figcaption className="font-bold text-base text-primary mt-2">
+          <figcaption className="font-bold text-base text-primary mt-2 overflow-hidden text-ellipsis whitespace-nowrap">
             {title}
           </figcaption>
           <span className="font-bold text-sm text-secondary">

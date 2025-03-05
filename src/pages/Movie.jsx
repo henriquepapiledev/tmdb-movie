@@ -1,7 +1,9 @@
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
-import { useEffect } from 'react';
 import { MOVIE_GET_ID } from '../api/api';
+import MovieTitle from '../components/Movies/MovieTitle';
+import MovieRecommendations from '../components/Movies/MovieRecommendations';
 
 const Movie = () => {
   const { id } = useParams();
@@ -51,11 +53,30 @@ const Movie = () => {
             </div>
           </div>
         </section>
-        <section className="content pt-8 pb-8">
-          <div className="container"></div>
+
+        <section className="content pt-[4.75rem]">
+          <div className="container">
+            <MovieTitle title="Elenco original" />
+          </div>
+        </section>
+
+        <section className="content pt-10">
+          <div className="container">
+            <MovieTitle title="Trailer" />
+          </div>
+        </section>
+
+        <section className="content pt-16 pb-8">
+          <div className="container">
+            <MovieTitle title="Recomendações" />
+            <div className="movie-list grid grid-cols-6 gap-8 gap-y-12">
+              <MovieRecommendations />
+            </div>
+          </div>
         </section>
       </>
     );
+  else return null;
 };
 
 export default Movie;

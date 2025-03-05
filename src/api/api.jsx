@@ -30,3 +30,13 @@ export function MOVIE_GET_ID(id) {
     },
   };
 }
+
+export function MOVIE_RECOMMENDATIONS_GET(id) {
+  return {
+    url: `${API_URL}movie/${id}/recommendations?&api_key=${API_KEY}&language=pt-BR`,
+    options: {
+      method: 'GET',
+      cache: 'no-store',
+    },
+  };
+}
