@@ -31,7 +31,7 @@ const MovieVideoTrailer = () => {
               <MovieTitle title="Trailer" />
               <div className="w-[80%] h-[70vh]">
                 <iframe
-                  className="w-full h-full"
+                  className="w-full h-full rounded-md"
                   src={`https://www.youtube.com/embed/${trailer.key}`}
                 ></iframe>
               </div>

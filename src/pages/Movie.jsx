@@ -6,6 +6,7 @@ import MovieTitle from '../components/Movies/MovieTitle';
 import MovieRecommendations from '../components/Movies/MovieRecommendations';
 import image from '../assets/no-image.jpg';
 import MovieVideoTrailer from '../components/Movies/MovieVideoTrailer';
+import MovieCardCastList from '../components/Movies/MovieCardCastList';
 
 const Movie = () => {
   const { id } = useParams();
@@ -26,7 +27,7 @@ const Movie = () => {
               <div className="flex gap-8">
                 <div className="w-96 flex-none mb-[-3rem]">
                   <img
-                    className="w-full rounded-md object-cover"
+                    className="w-full rounded-md object-cover shadow-md"
                     src={
                       data.poster_path
                         ? `${movieImage}${data.poster_path}`
@@ -44,15 +45,9 @@ const Movie = () => {
                     científica • 1h 47m
                   </p>
                   <h2 className="font-bold text-xl text-white mb-2">Sinopse</h2>
-                  {data.overview ? (
-                    <p className="font-normal text-xl text-quaternary mb-2">
-                      {data.overview}
-                    </p>
-                  ) : (
-                    <p className="font-normal text-xl text-quaternary mb-2">
-                      Sem descrição.
-                    </p>
-                  )}
+                  <p className="font-normal text-xl text-quaternary mb-2">
+                    {data.overview ? data.overview : 'Descrição indisponível.'}
+                  </p>
                   <div></div>
                 </div>
               </div>
@@ -63,6 +58,7 @@ const Movie = () => {
         <section className="content pt-[4.75rem]">
           <div className="container">
             <MovieTitle title="Elenco original" />
+            <MovieCardCastList />
           </div>
         </section>
 

@@ -20,6 +20,7 @@ const MovieListCategory = () => {
         ))}
       </div>
     );
+  else return null;
 };
 
 export default MovieListCategory;
