@@ -2,25 +2,17 @@ import { Link } from 'react-router-dom';
 import image from '../../assets/no-image.jpg';
 
 const MovieCard = ({ id, poster_path, title, release_date }) => {
-  const movieImage = 'https://image.tmdb.org/t/p/original';
+  const movieImage = 'https://image.tmdb.org/t/p/original' + poster_path;
 
   return (
     <div>
       <Link to={`/filme/${id}`}>
         <figure id={id}>
-          {poster_path === null ? (
-            <img
-              className="w-full rounded-md object-cover min-h-[336px]"
-              src={image}
-              alt={title}
-            />
-          ) : (
-            <img
-              className="w-full rounded-md object-cover min-h-[336px]"
-              src={`${movieImage}${poster_path}`}
-              alt={title}
-            />
-          )}
+          <img
+            className="w-full rounded-md object-cover min-h-[336px]"
+            src={poster_path ? movieImage : image}
+            alt={title}
+          />
 
           <figcaption className="font-bold text-base text-primary mt-2 overflow-hidden text-ellipsis whitespace-nowrap">
             {title}

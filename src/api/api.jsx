@@ -41,4 +41,14 @@ export function MOVIE_RECOMMENDATIONS_GET(id) {
   };
 }
 
+export function MOVIE_TRAILER_GET(id) {
+  return {
+    url: `${API_URL}movie/${id}/videos?&api_key=${API_KEY}&language=pt-BR`,
+    options: {
+      method: 'GET',
+      cache: 'no-store',
+    },
+  };
+}
+
 // https://api.themoviedb.org/3/movie/762509/videos?api_key=55a9bb22a00e5315b77e12a84f6c24bd&language=pt-BR
