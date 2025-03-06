@@ -8,11 +8,8 @@ const MovieListCategory = () => {
   const { data, loading, error, request } = useFetch();
 
   useEffect(() => {
-    const getMovieCategory = async () => {
-      const { url, options } = MOVIE_CATEGORY_GET();
-      const { response, json } = await request(url, options);
-    };
-    getMovieCategory();
+    const { url, options } = MOVIE_CATEGORY_GET();
+    request(url, options);
   }, [request]);
 
   if (data)

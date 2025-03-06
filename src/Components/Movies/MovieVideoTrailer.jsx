@@ -1,11 +1,12 @@
 import { useParams } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { MOVIE_TRAILER_GET } from '../../api/api';
 
 const MovieVideoTrailer = () => {
   const { id } = useParams();
   const { data, loading, error, request } = useFetch();
+  const [trailer, setTrailer] = useState(null);
 
   useEffect(() => {
     const { url, options } = MOVIE_TRAILER_GET(id);
