@@ -16,7 +16,7 @@ const MovieRecommendations = () => {
       setRecommendations(json.results.slice(0, 6));
     };
     getMovieRecommendations();
-  }, [request]);
+  }, [request, id]);
 
   if (data)
     return (

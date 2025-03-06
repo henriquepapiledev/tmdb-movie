@@ -10,7 +10,7 @@ const MovieList = () => {
   useEffect(() => {
     const { url, options } = MOVIE_GET({ page });
     request(url, options);
-  }, [request]);
+  }, [request, page]);
 
   if (data)
     return (

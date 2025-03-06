@@ -66,12 +66,7 @@ const Movie = () => {
           </div>
         </section>
 
-        <section className="content pt-10">
-          <div className="container">
-            <MovieTitle title="Trailer" />
-            <MovieVideoTrailer />
-          </div>
-        </section>
+        <MovieVideoTrailer />
 
         <section className="content pt-16 pb-8">
           <div className="container">
