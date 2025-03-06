@@ -8,11 +8,8 @@ const MovieList = () => {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    const getMovie = async () => {
-      const { url, options } = MOVIE_GET({ page });
-      await request(url, options);
-    };
-    getMovie();
+    const { url, options } = MOVIE_GET({ page });
+    request(url, options);
   }, [request]);
 
   if (data)
