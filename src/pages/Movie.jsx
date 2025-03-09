@@ -9,6 +9,7 @@ import MovieVideoTrailer from '../components/Movies/MovieVideoTrailer';
 import MovieCardCastList from '../components/Movies/MovieCardCastList';
 import MovieAgeRange from '../components/Movies/MovieAgeRange';
 import CircularProgressBar from '../utils/CircularProgressBar';
+import MovieCrew from '../components/Movies/MovieCrew';
 
 const Movie = () => {
   const { id } = useParams();
@@ -82,11 +83,11 @@ const Movie = () => {
                     alt={data.title}
                   />
                 </div>
-                <div className="w-4xl pb-16">
+                <div className="w-3xl pb-16">
                   <h1 className="font-bold text-[2rem] text-white leading-none mb-3">
                     {data.title} ({releaseYear})
                   </h1>
-                  <p className="font-normal text-xl text-white mb-4">
+                  <p className="font-normal text-lg text-white mb-4">
                     <MovieAgeRange /> • {releaseDate} (BR) • {genres} •{' '}
                     {runTime}
                   </p>
@@ -102,10 +103,12 @@ const Movie = () => {
                     </p>
                   </div>
                   <h2 className="font-bold text-xl text-white mb-2">Sinopse</h2>
-                  <p className="font-normal text-xl text-quaternary line-clamp-5 mb-2">
+                  <p className="font-normal text-base text-quaternary line-clamp-5">
                     {data.overview ? data.overview : 'Descrição indisponível.'}
                   </p>
-                  <div></div>
+                  <div className="mt-6">
+                    <MovieCrew />
+                  </div>
                 </div>
               </div>
             </div>
