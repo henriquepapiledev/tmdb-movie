@@ -60,3 +60,13 @@ export function MOVIE_CAST_GET(id) {
     },
   };
 }
+
+export function MOVIE_AGE_RANGE_GET(id) {
+  return {
+    url: `${API_URL}movie/${id}/release_dates?&api_key=${API_KEY}&language=pt-BR`,
+    options: {
+      method: 'GET',
+      cache: 'no-store',
+    },
+  };
+}

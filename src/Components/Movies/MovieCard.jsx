@@ -9,7 +9,7 @@ const MovieCard = ({ id, poster_path, title, release_date }) => {
       <Link to={`/filme/${id}`}>
         <figure id={id}>
           <img
-            className="w-full rounded-md object-cover min-h-[336px]"
+            className="w-full rounded-md object-cover h-[336px]"
             src={poster_path ? movieImage : image}
             alt={title}
           />

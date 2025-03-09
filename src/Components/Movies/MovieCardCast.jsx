@@ -4,7 +4,7 @@ const MovieCardCast = ({ id, name, character, profile_path }) => {
   const imageCast = 'https://image.tmdb.org/t/p/original' + profile_path;
 
   return (
-    <figure className="bg-white p-2 rounded-md shadow-md" id={id}>
+    <figure className="bg-white h-full w-full p-2 rounded-md shadow-md" id={id}>
       <img
         className="w-full object-cover h-[300px] rounded-md"
         src={profile_path ? imageCast : image}
