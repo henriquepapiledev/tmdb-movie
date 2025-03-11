@@ -69,12 +69,12 @@ const Movie = () => {
     return (
       <>
         <section className="topo">
-          <div className="bg-secondary-color pt-18">
+          <div className="bg-secondary-color pt-10 lg:pt-18">
             <div className="container">
-              <div className="flex gap-8">
-                <div className="w-96 flex-none mb-[-3rem]">
+              <div className="flex flex-col lg:flex-row gap-11 lg:gap-8">
+                <div className="lg:w-96 flex-none lg:mb-[-3rem]">
                   <img
-                    className="w-full rounded-md object-cover shadow-md"
+                    className="w-[50lvw] m-auto lg:w-full rounded-md object-cover shadow-md"
                     src={
                       data.poster_path
                         ? `${movieImage}${data.poster_path}`
@@ -83,11 +83,11 @@ const Movie = () => {
                     alt={data.title}
                   />
                 </div>
-                <div className="w-3xl pb-16">
-                  <h1 className="font-bold text-[2rem] text-white leading-none mb-3">
+                <div className="lg:w-3xl pb-16">
+                  <h1 className="font-bold text-[2rem] text-white leading-[38px] lg:leading-none mb-2 lg:mb-3">
                     {data.title} ({releaseYear})
                   </h1>
-                  <p className="font-normal text-lg text-white mb-4">
+                  <p className="font-normal text-lg text-white mb-8 lg:mb-4">
                     <MovieAgeRange /> • {releaseDate} (BR) • {genres} •{' '}
                     {runTime}
                   </p>
@@ -102,11 +102,13 @@ const Movie = () => {
                       Avaliação dos usuários
                     </p>
                   </div>
-                  <h2 className="font-bold text-xl text-white mb-2">Sinopse</h2>
+                  <h2 className="font-bold text-xl text-white mb-4 lg:mb-2">
+                    Sinopse
+                  </h2>
                   <p className="font-normal text-base text-quaternary line-clamp-5">
                     {data.overview ? data.overview : 'Descrição indisponível.'}
                   </p>
-                  <div className="mt-6">
+                  <div className="mt-8 lg:mt-6">
                     <MovieCrew />
                   </div>
                 </div>
@@ -122,12 +124,19 @@ const Movie = () => {
           </div>
         </section>
 
-        <MovieVideoTrailer />
+        <section className="content pt-10">
+          <div className="container">
+            <MovieTitle title="Trailer" />
+            <div className="flex flex-row">
+              <MovieVideoTrailer />
+            </div>
+          </div>
+        </section>
 
-        <section className="content pt-16 pb-8">
+        <section className="content pt-12 lg:pt-16 pb-8">
           <div className="container">
             <MovieTitle title="Recomendações" />
-            <div className="movie-list grid grid-cols-6 gap-8 gap-y-12">
+            <div className="movie-list grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 gap-y-8 lg:gap-8 lg:gap-y-12">
               <MovieRecommendations />
             </div>
           </div>

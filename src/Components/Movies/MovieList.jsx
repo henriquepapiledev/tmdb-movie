@@ -14,7 +14,7 @@ const MovieList = () => {
 
   if (data)
     return (
-      <div className="movie-list grid grid-cols-6 gap-8 gap-y-12">
+      <div className="movie-list grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 gap-y-8 lg:gap-8 lg:gap-y-12">
         {data.results.map(({ id, poster_path, title, release_date }) => (
           <MovieCard
             key={id}

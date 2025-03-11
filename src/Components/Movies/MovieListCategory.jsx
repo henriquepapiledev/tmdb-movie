@@ -14,7 +14,7 @@ const MovieListCategory = () => {
 
   if (data)
     return (
-      <div className="movie-category flex flex-wrap justify-center gap-3 max-w-5xl mt-4 m-auto">
+      <div className="movie-category flex flex-wrap lg:justify-center gap-3 max-w-5xl mt-4 m-auto">
         {data.genres.map(({ name }) => (
           <MovieButtonCategory key={name} name={name} />
         ))}

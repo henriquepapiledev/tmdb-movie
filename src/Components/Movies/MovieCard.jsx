@@ -18,20 +18,21 @@ const MovieCard = ({ id, poster_path, title, release_date }) => {
 
   return (
     <div>
-      <Link to={`/filme/${id}`}>
-        <figure id={id}>
+      <Link className="block h-full" to={`/filme/${id}`}>
+        <figure className="flex flex-col justify-between h-full" id={id}>
           <img
-            className="w-full rounded-md object-cover h-[336px]"
+            className="w-full rounded-md object-cover flex-auto"
             src={poster_path ? movieImage : image}
             alt={title}
           />
-
-          <figcaption className="font-bold text-base text-primary mt-2 overflow-hidden text-ellipsis whitespace-nowrap">
-            {title}
-          </figcaption>
-          <span className="font-bold text-base text-secondary">
-            {releaseDate}
-          </span>
+          <div>
+            <figcaption className="font-bold text-base text-primary mt-2 overflow-hidden text-ellipsis whitespace-nowrap">
+              {title}
+            </figcaption>
+            <span className="font-bold text-base text-secondary">
+              {releaseDate}
+            </span>
+          </div>
         </figure>
       </Link>
     </div>

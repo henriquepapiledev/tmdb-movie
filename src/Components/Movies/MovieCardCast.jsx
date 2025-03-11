@@ -4,18 +4,23 @@ const MovieCardCast = ({ id, name, character, profile_path }) => {
   const imageCast = 'https://image.tmdb.org/t/p/original' + profile_path;
 
   return (
-    <figure className="bg-white h-full w-full p-2 rounded-md shadow-md" id={id}>
+    <figure
+      className="flex flex-col justify-between bg-white h-full w-48 p-2 rounded-md shadow-md"
+      id={id}
+    >
       <img
-        className="w-full object-cover h-[300px] rounded-md"
+        className="w-full h-[220px] object-cover rounded-md"
         src={profile_path ? imageCast : image}
         alt={name}
       />
-      <figcaption className="font-bold text-lg text-tertiary overflow-hidden text-ellipsis whitespace-nowrap mt-4 mb-1">
-        {name}
-      </figcaption>
-      <span className="block font-normal text-base text-tertiary overflow-hidden text-ellipsis whitespace-nowrap">
-        {character}
-      </span>
+      <div>
+        <figcaption className="font-bold text-lg text-tertiary overflow-hidden text-ellipsis whitespace-nowrap mt-4 mb-1">
+          {name}
+        </figcaption>
+        <span className="block font-normal text-base text-tertiary overflow-hidden text-ellipsis whitespace-nowrap">
+          {character}
+        </span>
+      </div>
     </figure>
   );
 };

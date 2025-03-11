@@ -6,13 +6,13 @@ const Home = () => {
   return (
     <>
       <section className="topo">
-        <div className="bg-secondary-color pt-21 pb-21">
+        <div className="bg-secondary-color pt-10 pb-10 lg:pt-21 lg:pb-21">
           <div className="container">
-            <h1 className="font-bold text-5xl text-white text-center leading-14 max-w-3xl m-auto">
+            <h1 className="font-bold text-2xl lg:text-5xl text-white lg:text-center lg:leading-14 max-w-3xl m-auto">
               Milhões de filmes, séries e pessoas para descobrir. Explore já.
             </h1>
-            <div className="mt-10">
-              <p className="font-bold text-sm text-white text-center uppercase">
+            <div className="mt-9 lg:mt-10">
+              <p className="font-bold text-sm text-white lg:text-center uppercase">
                 Filtre por:
               </p>
               <MovieListCategory />

@@ -35,7 +35,7 @@ const MovieCrew = () => {
   if (data)
     return (
       <>
-        <ul className="grid grid-cols-4 gap-4">
+        <ul className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           <li>
             <p className="font-bold text-base text-white overflow-hidden text-ellipsis whitespace-nowrap">
               {director}

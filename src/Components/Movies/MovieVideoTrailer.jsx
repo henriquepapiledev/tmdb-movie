@@ -20,23 +20,18 @@ const MovieVideoTrailer = () => {
       );
     };
     getMovieTrailer();
-  }, [request, id]);
+  }, [request, id, setTrailer]);
 
   if (data)
     return (
       <>
-        {trailer && (
-          <section className="content pt-10">
-            <div className="container">
-              <MovieTitle title="Trailer" />
-              <div className="w-[80%] h-[70vh]">
-                <iframe
-                  className="w-full h-full rounded-md"
-                  src={`https://www.youtube.com/embed/${trailer.key}`}
-                ></iframe>
-              </div>
-            </div>
-          </section>
+        {trailer ? (
+          <iframe
+            className="lg:basis-4xl aspect-video w-full rounded-md"
+            src={`https://www.youtube.com/embed/${trailer.key}`}
+          ></iframe>
+        ) : (
+          'Trailer indisponível.'
         )}
       </>
     );
