@@ -1,4 +1,3 @@
-import image from '../assets/no-image.jpg';
 import styles from '../helper/SkeletonCard.module.css';
 
 const SkeletonCard = () => {
