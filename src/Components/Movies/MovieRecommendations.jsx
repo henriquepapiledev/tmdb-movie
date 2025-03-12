@@ -13,7 +13,7 @@ const MovieRecommendations = () => {
     const getMovieRecommendations = async () => {
       const { url, options } = MOVIE_RECOMMENDATIONS_GET(id);
       const { json } = await request(url, options);
-      setRecommendations(json.results.slice(0, 6));
+      setRecommendations(json.results?.slice(0, 6));
     };
     getMovieRecommendations();
   }, [request, id]);
@@ -21,16 +21,18 @@ const MovieRecommendations = () => {
   if (data)
     return (
       <>
-        {recommendations &&
-          recommendations.map((recommendation) => (
-            <MovieCard
-              key={recommendation.id}
-              id={recommendation.id}
-              poster_path={recommendation.poster_path}
-              title={recommendation.title}
-              release_date={recommendation.release_date}
-            />
-          ))}
+        {console.log(recommendations)}
+        {recommendations.length === 0
+          ? 'Recomendações indisponível'
+          : recommendations.map((recommendation) => (
+              <MovieCard
+                key={recommendation.id}
+                id={recommendation.id}
+                poster_path={recommendation.poster_path}
+                title={recommendation.title}
+                release_date={recommendation.release_date}
+              />
+            ))}
       </>
     );
   else return null;

@@ -30,7 +30,7 @@ const MovieCard = ({ id, poster_path, title, release_date }) => {
               {title}
             </figcaption>
             <span className="font-bold text-base text-secondary">
-              {releaseDate}
+              {releaseDate ? releaseDate : 'Data indisponível'}
             </span>
           </div>
         </figure>

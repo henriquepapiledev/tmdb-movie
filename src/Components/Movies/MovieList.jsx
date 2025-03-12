@@ -1,27 +1,35 @@
-import { useEffect, useState } from 'react';
-import MovieCard from './MovieCard';
-import { MOVIE_GET } from '../../api/api';
+import React, { useEffect, useState } from 'react';
 import useFetch from '../../hooks/useFetch';
+import MovieCard from './MovieCard';
+import { MOVIE_AND_CATEGORY_GET } from '../../api/api';
 
-const MovieList = () => {
+const MovieList = ({ selectedGenres, currentPage, setTotalPages }) => {
   const { data, loading, error, request } = useFetch();
-  const [page, setPage] = useState(1);
+  const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    const { url, options } = MOVIE_GET({ page });
-    request(url, options);
-  }, [request, page]);
+    const fetchMovies = async () => {
+      const { url, options } = MOVIE_AND_CATEGORY_GET({
+        currentPage,
+        selectedGenres,
+      });
+      const { json } = await request(url);
+      setMovies(json.results);
+      setTotalPages(json.total_pages);
+    };
+    fetchMovies();
+  }, [selectedGenres, currentPage, setTotalPages]);
 
   if (data)
     return (
-      <div className="movie-list grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 gap-y-8 lg:gap-8 lg:gap-y-12">
-        {data.results.map(({ id, poster_path, title, release_date }) => (
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mt-6">
+        {movies.map((movie) => (
           <MovieCard
-            key={id}
-            id={id}
-            poster_path={poster_path}
-            title={title}
-            release_date={release_date}
+            key={movie.id}
+            id={movie.id}
+            poster_path={movie.poster_path}
+            title={movie.title}
+            release_date={movie.release_date}
           />
         ))}
       </div>

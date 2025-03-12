@@ -1,8 +1,13 @@
+import { useState } from 'react';
 import MovieList from '../components/Movies/MovieList';
 import MovieListCategory from '../components/Movies/MovieListCategory';
 import MoviePagination from '../components/Movies/MoviePagination';
 
 const Home = () => {
+  const [selectedGenres, setSelectedGenres] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+
   return (
     <>
       <section className="topo">
@@ -15,15 +20,27 @@ const Home = () => {
               <p className="font-bold text-sm text-white lg:text-center uppercase">
                 Filtre por:
               </p>
-              <MovieListCategory />
+              <MovieListCategory
+                selectedGenres={selectedGenres}
+                setSelectedGenres={setSelectedGenres}
+                setCurrentPage={setCurrentPage}
+              />
             </div>
           </div>
         </div>
       </section>
       <section className="content pt-8 pb-8">
         <div className="container">
-          <MovieList />
-          <MoviePagination />
+          <MovieList
+            selectedGenres={selectedGenres}
+            currentPage={currentPage}
+            setTotalPages={setTotalPages}
+          />
+          <MoviePagination
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            totalPages={totalPages}
+          />
         </div>
       </section>
     </>

@@ -88,8 +88,9 @@ const Movie = () => {
                     {data.title} ({releaseYear})
                   </h1>
                   <p className="font-normal text-lg text-white mb-8 lg:mb-4">
-                    <MovieAgeRange /> • {releaseDate} (BR) • {genres} •{' '}
-                    {runTime}
+                    <MovieAgeRange /> •{' '}
+                    {releaseDate ? releaseDate : 'Data indisponível'} (BR) •{' '}
+                    {genres ? genres : ' Gêneros indisponível'} • {runTime}
                   </p>
 
                   <div className="flex items-center gap-3 mb-8">
