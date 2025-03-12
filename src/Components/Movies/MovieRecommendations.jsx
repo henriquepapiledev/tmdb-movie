@@ -28,7 +28,7 @@ const MovieRecommendations = () => {
           </p>
         ) : (
           recommendations.map((recommendation) => (
-            <>
+            <div key={recommendation.id}>
               {loading ? (
                 <SkeletonCard />
               ) : (
@@ -40,7 +40,7 @@ const MovieRecommendations = () => {
                   release_date={recommendation.release_date}
                 />
               )}
-            </>
+            </div>
           ))
         )}
       </>
