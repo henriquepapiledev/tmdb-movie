@@ -21,7 +21,6 @@ const MovieRecommendations = () => {
   if (data)
     return (
       <>
-        {console.log(recommendations)}
         {recommendations.length === 0
           ? 'Recomendações indisponível'
           : recommendations.map((recommendation) => (
