@@ -6,7 +6,7 @@ import MovieTitle from './MovieTitle';
 
 const MovieVideoTrailer = () => {
   const { id } = useParams();
-  const { data, loading, error, request } = useFetch();
+  const { data, request } = useFetch();
   const [trailer, setTrailer] = useState(null);
 
   useEffect(() => {
@@ -31,7 +31,9 @@ const MovieVideoTrailer = () => {
             src={`https://www.youtube.com/embed/${trailer.key}`}
           ></iframe>
         ) : (
-          'Trailer indisponível.'
+          <p className="font-normal text-base text-tertiary">
+            Trailer indisponível.
+          </p>
         )}
       </>
     );

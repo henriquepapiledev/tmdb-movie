@@ -3,10 +3,11 @@ import useFetch from '../../hooks/useFetch';
 import { MOVIE_RECOMMENDATIONS_GET } from '../../api/api';
 import { useParams } from 'react-router-dom';
 import MovieCard from './MovieCard';
+import SkeletonCard from '../../helper/SkeletonCard';
 
 const MovieRecommendations = () => {
   const { id } = useParams();
-  const { data, loading, error, request } = useFetch();
+  const { data, loading, request } = useFetch();
   const [recommendations, setRecommendations] = useState(null);
 
   useEffect(() => {
@@ -21,17 +22,27 @@ const MovieRecommendations = () => {
   if (data)
     return (
       <>
-        {recommendations.length === 0
-          ? 'Recomendações indisponível'
-          : recommendations.map((recommendation) => (
-              <MovieCard
-                key={recommendation.id}
-                id={recommendation.id}
-                poster_path={recommendation.poster_path}
-                title={recommendation.title}
-                release_date={recommendation.release_date}
-              />
-            ))}
+        {recommendations.length === 0 ? (
+          <p className="font-normal text-base text-tertiary">
+            Recomendações indisponível.
+          </p>
+        ) : (
+          recommendations.map((recommendation) => (
+            <>
+              {loading ? (
+                <SkeletonCard />
+              ) : (
+                <MovieCard
+                  key={recommendation.id}
+                  id={recommendation.id}
+                  poster_path={recommendation.poster_path}
+                  title={recommendation.title}
+                  release_date={recommendation.release_date}
+                />
+              )}
+            </>
+          ))
+        )}
       </>
     );
   else return null;

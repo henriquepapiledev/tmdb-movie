@@ -5,7 +5,7 @@ import { MOVIE_AGE_RANGE_GET } from '../../api/api';
 
 const MovieAgeRange = () => {
   const { id } = useParams();
-  const { data, loading, error, request } = useFetch();
+  const { data, request } = useFetch();
   const [age, setAge] = useState(null);
 
   function getContentRating(releaseData) {

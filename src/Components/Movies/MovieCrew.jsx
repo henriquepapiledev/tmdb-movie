@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 
 const MovieCrew = () => {
   const { id } = useParams();
-  const { data, loading, error, request } = useFetch();
+  const { data, request } = useFetch();
   const [director, setDirector] = useState('');
   const [writers, setWriters] = useState([]);
 

@@ -13,7 +13,7 @@ import MovieCrew from '../components/Movies/MovieCrew';
 
 const Movie = () => {
   const { id } = useParams();
-  const { data, loading, error, request } = useFetch();
+  const { data, request } = useFetch();
   const [genres, setGenres] = useState(null);
   const [releaseDate, setReleaseDate] = useState(null);
   const [releaseYear, setReleaseYear] = useState(null);

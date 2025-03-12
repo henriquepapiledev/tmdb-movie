@@ -8,7 +8,7 @@ const MovieListCategory = ({
   setSelectedGenres,
   setCurrentPage,
 }) => {
-  const { data, loading, error, request } = useFetch();
+  const { data, request } = useFetch();
   const [genres, setGenres] = useState([]);
 
   useEffect(() => {
