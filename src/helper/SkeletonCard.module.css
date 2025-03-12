@@ -1,0 +1,15 @@
+.skeleton {
+  background-image: linear-gradient(90deg, #cdcdcd 0, #fff 50%, #cdcdcd 100%);
+  background-color: #cdcdcd;
+  background-size: 200%;
+  animation: skeleton 1.5s infinite linear;
+}
+
+@keyframes skeleton {
+  from {
+    background-position: 0;
+  }
+  to {
+    background-position: -200%;
+  }
+}

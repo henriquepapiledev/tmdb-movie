@@ -25,7 +25,7 @@ const MovieCardCastList = () => {
         ) : (
           <div className="movie-cast flex overflow-auto overflow-y-hidden gap-4 overflow-x-scroll pt-0.5 pb-6 pl-1 pr-1">
             {data.cast.map(({ id, name, character, profile_path }) => (
-              <div className="basis-48 grow-[0] shrink-[0]">
+              <div className="basis-48 grow-[0] shrink-[0]" key={id}>
                 <MovieCardCast
                   id={id}
                   name={name}

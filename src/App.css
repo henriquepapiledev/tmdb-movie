@@ -27,6 +27,9 @@
   --color-progress-bg: #42246e;
   --color-progress-primary: #14ff00;
   --color-progress-secondary: #d2d531;
+
+  /* aspect */
+  --aspect-image: 1 / 1.5;
 }
 
 .App {

@@ -17,7 +17,7 @@ const MovieCard = ({ id, poster_path, title, release_date }) => {
   }, [setReleaseDate]);
 
   return (
-    <div>
+    <div className="h-full">
       <Link className="block h-full" to={`/filme/${id}`}>
         <figure className="flex flex-col justify-between h-full" id={id}>
           <img
