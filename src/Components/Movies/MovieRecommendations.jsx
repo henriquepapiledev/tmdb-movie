@@ -24,7 +24,7 @@ const MovieRecommendations = () => {
       <>
         {recommendations.length === 0 ? (
           <p className="font-normal text-base text-tertiary">
-            Recomendações indisponível.
+            Recomendações indisponíveis.
           </p>
         ) : (
           recommendations.map((recommendation) => (
@@ -38,6 +38,7 @@ const MovieRecommendations = () => {
                   poster_path={recommendation.poster_path}
                   title={recommendation.title}
                   release_date={recommendation.release_date}
+                  vote_average={recommendation.vote_average}
                 />
               )}
             </div>

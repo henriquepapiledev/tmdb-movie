@@ -16,6 +16,7 @@
   --color-primary-color: #5c16c5;
   --color-secondary-color: #2d0c5e;
   --color-tertiary-color: #d18000;
+  --color-opacity-color: rgba(30, 33, 48, 0.8);
 
   /* box shadow */
   --shadow-md: 0px 4px 8px -3px rgba(0, 0, 0, 0.5);
@@ -45,6 +46,32 @@
 .container {
   margin-inline: auto;
   padding-inline: 1rem;
+}
+
+.animeDown {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: animeDown 1s ease 0s 1 normal forwards;
+}
+
+@keyframes animeDown {
+  to {
+    opacity: 1;
+    transform: initial;
+  }
+}
+
+.animeLeft {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: animeLeft 1s ease 0s 1 normal forwards;
+}
+
+@keyframes animeLeft {
+  to {
+    opacity: 1;
+    transform: initial;
+  }
 }
 
 /* scroll bar */

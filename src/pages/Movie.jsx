@@ -10,6 +10,7 @@ import MovieCardCastList from '../components/Movies/MovieCardCastList';
 import MovieAgeRange from '../components/Movies/MovieAgeRange';
 import CircularProgressBar from '../utils/CircularProgressBar';
 import MovieCrew from '../components/Movies/MovieCrew';
+import Head from '../helper/Head';
 
 const Movie = () => {
   const { id } = useParams();
@@ -68,6 +69,10 @@ const Movie = () => {
   if (data)
     return (
       <>
+        <Head
+          title={`${data.title} ${releaseYear}`}
+          description="Descrição do filme, site The Movie Database."
+        />
         <section className="topo">
           <div className="bg-secondary-color pt-10 lg:pt-18">
             <div className="container">

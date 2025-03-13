@@ -2,6 +2,7 @@ import { useState } from 'react';
 import MovieList from '../components/Movies/MovieList';
 import MovieListCategory from '../components/Movies/MovieListCategory';
 import MoviePagination from '../components/Movies/MoviePagination';
+import Head from '../helper/Head';
 
 const Home = () => {
   const [selectedGenres, setSelectedGenres] = useState([]);
@@ -10,6 +11,10 @@ const Home = () => {
 
   return (
     <>
+      <Head
+        title="The Movie Database (TMDB)"
+        description="Home do site The Movie Database."
+      />
       <section className="topo">
         <div className="bg-secondary-color pt-10 pb-10 lg:pt-21 lg:pb-21">
           <div className="container">

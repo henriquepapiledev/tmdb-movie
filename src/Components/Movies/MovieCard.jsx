@@ -1,10 +1,13 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import image from '../../assets/no-image.jpg';
-import { useEffect, useState } from 'react';
+import Star from '../../assets/icon-star.svg?react';
 
-const MovieCard = ({ id, poster_path, title, release_date }) => {
+const MovieCard = ({ id, poster_path, title, release_date, vote_average }) => {
   const movieImage = 'https://image.tmdb.org/t/p/original' + poster_path;
   const [releaseDate, setReleaseDate] = useState(null);
+  const [releaseDateYear, setReleaseDateYear] = useState(null);
+  const [releaseVoteAverage, setReleaseVoteAverage] = useState(null);
 
   function formatDate(dataString) {
     if (!dataString) return '';
@@ -12,14 +15,45 @@ const MovieCard = ({ id, poster_path, title, release_date }) => {
     return `${day}/${month}/${year}`;
   }
 
+  function formatDateYear(dataString) {
+    if (!dataString) return '';
+    const [year] = dataString.split('-');
+    return `${year}`;
+  }
+
+  function formatVoteAverage(data) {
+    if (!data) return '';
+    return data.toFixed(1);
+  }
+
   useEffect(() => {
     setReleaseDate(formatDate(release_date));
   }, [setReleaseDate]);
 
+  useEffect(() => {
+    setReleaseDateYear(formatDateYear(release_date));
+  }, [setReleaseDateYear]);
+
+  useEffect(() => {
+    setReleaseVoteAverage(formatVoteAverage(vote_average));
+  }, [setReleaseVoteAverage]);
+
   return (
     <div className="h-full">
       <Link className="block h-full" to={`/filme/${id}`}>
-        <figure className="flex flex-col justify-between h-full" id={id}>
+        <figure
+          className=" relative flex flex-col justify-between h-full"
+          id={id}
+        >
+          <div className="absolute top-2 left-2 font-bold text-white text-sm leading-normal bg-opacity-color p-0.5 pl-2 pr-2 rounded-full">
+            {releaseDateYear}
+          </div>
+          <div className="absolute top-2 right-2 z-10 flex items-center gap-1 bg-opacity-color p-0.5 pl-2 pr-2 rounded-full">
+            <Star />
+            <span className="relative top-[1px] z-10 font-bold text-white text-sm leading-normal">
+              {releaseVoteAverage ? releaseVoteAverage : '0'}
+            </span>
+          </div>
           <img
             className="w-full rounded-md object-cover flex-auto"
             src={poster_path ? movieImage : image}

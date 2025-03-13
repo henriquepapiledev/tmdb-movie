@@ -29,6 +29,7 @@ const MovieVideoTrailer = () => {
           <iframe
             className="lg:basis-4xl aspect-video w-full rounded-md"
             src={`https://www.youtube.com/embed/${trailer.key}`}
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           ></iframe>
         ) : (
           <p className="font-normal text-base text-tertiary">
