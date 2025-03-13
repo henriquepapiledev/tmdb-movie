@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import useFetch from '../../hooks/useFetch';
 import MovieCard from './MovieCard';
+import { motion } from 'framer-motion';
+import { fadeIn } from '../../helper/Motion';
 import { MOVIE_AND_CATEGORY_GET } from '../../api/api';
 import SkeletonCard from '../../helper/SkeletonCard';
 
@@ -10,7 +12,7 @@ const MovieList = ({ selectedGenres, currentPage, setTotalPages }) => {
 
   useEffect(() => {
     const fetchMovies = async () => {
-      const { url, options } = MOVIE_AND_CATEGORY_GET({
+      const { url } = MOVIE_AND_CATEGORY_GET({
         currentPage,
         selectedGenres,
       });
@@ -23,7 +25,12 @@ const MovieList = ({ selectedGenres, currentPage, setTotalPages }) => {
 
   if (data)
     return (
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mt-6">
+      <motion.div
+        variants={fadeIn('down', 0.3)}
+        initial="hidden"
+        animate={'show'}
+        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mt-6"
+      >
         {movies.map((movie) => (
           <div key={movie.id}>
             {loading ? (
@@ -40,7 +47,7 @@ const MovieList = ({ selectedGenres, currentPage, setTotalPages }) => {
             )}
           </div>
         ))}
-      </div>
+      </motion.div>
     );
   else return null;
 };

@@ -16,7 +16,7 @@ const MovieCardCastList = () => {
 
   if (data)
     return (
-      <>
+      <div>
         {data.cast.length === 0 ? (
           <div>
             <p className="font-normal text-base text-tertiary">
@@ -41,7 +41,7 @@ const MovieCardCastList = () => {
             ))}
           </div>
         )}
-      </>
+      </div>
     );
   else return null;
 };

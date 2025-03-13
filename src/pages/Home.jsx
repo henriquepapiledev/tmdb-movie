@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { fadeIn } from '../helper/Motion';
 import MovieList from '../components/Movies/MovieList';
 import MovieListCategory from '../components/Movies/MovieListCategory';
 import MoviePagination from '../components/Movies/MoviePagination';
@@ -16,12 +18,22 @@ const Home = () => {
         description="Home do site The Movie Database."
       />
       <section className="topo">
-        <div className="bg-secondary-color pt-10 pb-10 lg:pt-21 lg:pb-21">
+        <div className="bg-secondary-color pt-10 pb-10 lg:pt-21 lg:pb-21 min-h-[440px]">
           <div className="container">
-            <h1 className="font-bold text-2xl lg:text-5xl text-white lg:text-center lg:leading-14 max-w-3xl m-auto">
+            <motion.h1
+              variants={fadeIn('down', 0.1)}
+              initial="hidden"
+              animate={'show'}
+              className="font-bold text-2xl lg:text-5xl text-white lg:text-center lg:leading-14 max-w-3xl m-auto"
+            >
               Milhões de filmes, séries e pessoas para descobrir. Explore já.
-            </h1>
-            <div className="mt-9 lg:mt-10">
+            </motion.h1>
+            <motion.div
+              variants={fadeIn('down', 0.2)}
+              initial="hidden"
+              animate={'show'}
+              className="mt-9 lg:mt-10"
+            >
               <p className="font-bold text-sm text-white lg:text-center uppercase">
                 Filtre por:
               </p>
@@ -30,7 +42,7 @@ const Home = () => {
                 setSelectedGenres={setSelectedGenres}
                 setCurrentPage={setCurrentPage}
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -41,11 +53,18 @@ const Home = () => {
             currentPage={currentPage}
             setTotalPages={setTotalPages}
           />
-          <MoviePagination
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-            totalPages={totalPages}
-          />
+          <motion.div
+            variants={fadeIn('down', 0.2)}
+            initial="hidden"
+            whileInView={'show'}
+            viewport={{ once: true }}
+          >
+            <MoviePagination
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              totalPages={totalPages}
+            />
+          </motion.div>
         </div>
       </section>
     </>

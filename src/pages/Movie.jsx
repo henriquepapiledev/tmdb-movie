@@ -11,6 +11,8 @@ import MovieAgeRange from '../components/Movies/MovieAgeRange';
 import CircularProgressBar from '../utils/CircularProgressBar';
 import MovieCrew from '../components/Movies/MovieCrew';
 import Head from '../helper/Head';
+import { motion } from 'framer-motion';
+import { fadeIn } from '../helper/Motion';
 
 const Movie = () => {
   const { id } = useParams();
@@ -78,7 +80,10 @@ const Movie = () => {
             <div className="container">
               <div className="flex flex-col lg:flex-row gap-11 lg:gap-8">
                 <div className="lg:w-96 flex-none lg:mb-[-3rem]">
-                  <img
+                  <motion.img
+                    variants={fadeIn('right', 0.1)}
+                    initial="hidden"
+                    animate={'show'}
                     className="w-[50lvw] m-auto lg:w-full rounded-md object-cover shadow-md"
                     src={
                       data.poster_path
@@ -89,16 +94,31 @@ const Movie = () => {
                   />
                 </div>
                 <div className="lg:w-3xl pb-16">
-                  <h1 className="font-bold text-[2rem] text-white leading-[38px] lg:leading-none mb-2 lg:mb-3">
+                  <motion.h1
+                    variants={fadeIn('down', 0.1)}
+                    initial="hidden"
+                    animate={'show'}
+                    className="font-bold text-[2rem] text-white leading-[38px] lg:leading-none mb-2 lg:mb-3"
+                  >
                     {data.title} ({releaseYear})
-                  </h1>
-                  <p className="font-normal text-lg text-white mb-8 lg:mb-4">
+                  </motion.h1>
+                  <motion.p
+                    variants={fadeIn('down', 0.1)}
+                    initial="hidden"
+                    animate={'show'}
+                    className="font-normal text-lg text-white mb-8 lg:mb-4"
+                  >
                     <MovieAgeRange /> •{' '}
                     {releaseDate ? releaseDate : 'Data indisponível'} (BR) •{' '}
                     {genres ? genres : ' Gêneros indisponível'} • {runTime}
-                  </p>
+                  </motion.p>
 
-                  <div className="flex items-center gap-3 mb-8">
+                  <motion.div
+                    variants={fadeIn('down', 0.1)}
+                    initial="hidden"
+                    animate={'show'}
+                    className="flex items-center gap-3 mb-8"
+                  >
                     <CircularProgressBar
                       sqSize={60}
                       strokeWidth={6}
@@ -107,16 +127,31 @@ const Movie = () => {
                     <p className="font-normal text-base text-white leading-[1.3] w-25">
                       Avaliação dos usuários
                     </p>
-                  </div>
-                  <h2 className="font-bold text-xl text-white mb-4 lg:mb-2">
+                  </motion.div>
+                  <motion.h2
+                    variants={fadeIn('down', 0.1)}
+                    initial="hidden"
+                    animate={'show'}
+                    className="font-bold text-xl text-white mb-4 lg:mb-2"
+                  >
                     Sinopse
-                  </h2>
-                  <p className="font-normal text-base text-quaternary line-clamp-5">
+                  </motion.h2>
+                  <motion.p
+                    variants={fadeIn('down', 0.1)}
+                    initial="hidden"
+                    animate={'show'}
+                    className="font-normal text-base text-quaternary line-clamp-5"
+                  >
                     {data.overview ? data.overview : 'Descrição indisponível.'}
-                  </p>
-                  <div className="mt-8 lg:mt-6">
+                  </motion.p>
+                  <motion.div
+                    variants={fadeIn('down', 0.1)}
+                    initial="hidden"
+                    animate={'show'}
+                    className="mt-8 lg:mt-6"
+                  >
                     <MovieCrew />
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -125,26 +160,67 @@ const Movie = () => {
 
         <section className="content pt-[4.75rem]">
           <div className="container">
-            <MovieTitle title="Elenco original" />
-            <MovieCardCastList />
+            <motion.div
+              variants={fadeIn('down', 0.1)}
+              initial="hidden"
+              whileInView={'show'}
+              viewport={{ once: false }}
+            >
+              <MovieTitle title="Elenco original" />
+            </motion.div>
+            <motion.div
+              variants={fadeIn('down', 0.1)}
+              initial="hidden"
+              whileInView={'show'}
+              viewport={{ once: false }}
+            >
+              <MovieCardCastList />
+            </motion.div>
           </div>
         </section>
 
         <section className="content pt-10">
           <div className="container">
-            <MovieTitle title="Trailer" />
-            <div className="flex flex-row">
+            <motion.div
+              variants={fadeIn('down', 0.1)}
+              initial="hidden"
+              whileInView={'show'}
+              viewport={{ once: false }}
+            >
+              <MovieTitle title="Trailer" />
+            </motion.div>
+
+            <motion.div
+              variants={fadeIn('down', 0.2)}
+              initial="hidden"
+              whileInView={'show'}
+              viewport={{ once: false }}
+              className="flex flex-row"
+            >
               <MovieVideoTrailer />
-            </div>
+            </motion.div>
           </div>
         </section>
 
         <section className="content pt-12 lg:pt-16 pb-8">
           <div className="container">
-            <MovieTitle title="Recomendações" />
-            <div className="movie-list grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 gap-y-8 lg:gap-8 lg:gap-y-12">
+            <motion.div
+              variants={fadeIn('down', 0.1)}
+              initial="hidden"
+              whileInView={'show'}
+              viewport={{ once: false }}
+            >
+              <MovieTitle title="Recomendações" />
+            </motion.div>
+            <motion.div
+              variants={fadeIn('down', 0.2)}
+              initial="hidden"
+              whileInView={'show'}
+              viewport={{ once: false }}
+              className="movie-list grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 gap-y-8 lg:gap-8 lg:gap-y-12"
+            >
               <MovieRecommendations />
-            </div>
+            </motion.div>
           </div>
         </section>
       </>

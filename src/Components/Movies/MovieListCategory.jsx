@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { MOVIE_CATEGORY_GET } from '../../api/api';
 import useFetch from '../../hooks/useFetch';
+import { motion } from 'framer-motion';
+import { fadeIn } from '../../helper/Motion';
 import Close from '../../assets/icon-close-circle.svg?react';
 
 const MovieListCategory = ({
@@ -33,10 +35,11 @@ const MovieListCategory = ({
     return (
       <div className="flex flex-wrap gap-3 lg:justify-center max-w-5xl mt-4 m-auto">
         {genres.map((genre) => (
-          <button
+          <motion.button
+            whileTap={{ scale: 0.8 }}
             key={genre.id}
             onClick={() => handleGenreClick(genre.id)}
-            className={`flex px-4 py-2 rounded-md text-sm font-bold hover:bg-tertiary-color hover:text-white transition duration-150 ease-in-out cursor-pointer ${
+            className={`flex px-4 py-2 rounded-md text-sm font-bold hover:bg-tertiary-color hover:text-white cursor-pointer ${
               selectedGenres.includes(genre.id)
                 ? 'bg-tertiary-color text-white'
                 : 'bg-white text-black'
@@ -48,7 +51,7 @@ const MovieListCategory = ({
                 <Close />
               </span>
             )}
-          </button>
+          </motion.button>
         ))}
       </div>
     );
