@@ -1,4 +1,6 @@
-# TMDB movie
+# Projeto: TMDB (The Movie Database)
+
+<img src="./src/assets/print.png" />
 
 ## Descrição do Projeto
 
@@ -8,16 +10,23 @@
 
 <ul>
   <li>Listagem de filmes populares</li>
-  <li>Pesquisa de filmes por título</li>
+  <li>Pesquisa de filmes por categoria</li>
   <li>Exibição de detalhes de um filme</li>
   <li>Avaliação dos filmes</li>
   <li>Reprodução de trailers (se disponível)</li>
 </ul>
 
-## Tecnologias Utilizadas
+## Foram utilizadas as seguintes tecnologias:
 
 <ul>
-  <li>Frontend: React.js</li>
-  <li>Estilização: Tailwind CSS</li>
+  <li>React</li>
+  <li>React Router</li>
   <li>API: TMDB API</li>
+  <li>CustomHooks (useFetch)</li>
+  <li>useState</li>
+  <li>Framer Motion</li>
+  <li>Estilização: Tailwind CSS</li>
 </ul>
+
+<br />
+Deploy: <a href="" target="_blank">Clique aqui</a><br />
