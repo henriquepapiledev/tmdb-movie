@@ -29,4 +29,4 @@
 </ul>
 
 <br />
-Deploy: <a href="" target="_blank">Clique aqui</a><br />
+Deploy: <a href="https://tmdb-movie-ashen.vercel.app" target="_blank">Clique aqui</a><br />
