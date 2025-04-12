@@ -1,5 +1,9 @@
-export const API_URL = 'https://api.themoviedb.org/3/';
-export const API_KEY = '55a9bb22a00e5315b77e12a84f6c24bd';
+// Primeiro, carregue as variáveis de ambiente
+import dotenv from 'dotenv';
+
+// Use as variáveis do ambiente ao invés de hardcoded
+const API_URL = import.meta.env.VITE_API_URL;
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 export function MOVIE_AND_CATEGORY_GET({ currentPage, selectedGenres }) {
   return {
